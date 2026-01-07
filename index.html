@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Grand Vision | Bharath BholeY - IPNOTEC Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --violet: #9D00FF;
+            --indigo: #4B00B2;
+            --blue: #0070FF;
+            --green: #39FF14;
+            --yellow: #FFD700;
+            --orange: #FF6900;
+            --red: #FF0000;
+            --black: #000000;
+            --concrete: #0a0a0a;
+            --dark-gray: #222222;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background-color: var(--black);
+            color: white;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            overflow-y: auto;
+        }
+
+        /* Concrete Background Pattern - Darker */
+        .concrete-bg {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.03) 0%, transparent 55%),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.02) 0%, transparent 55%);
+            background-color: var(--concrete);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concrete-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.8) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.8) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        /* Section Styles */
+        .section {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        /* Neon Effects - Sharper Glow */
+        .neon-violet {
+            color: var(--violet);
+            text-shadow: 0 0 10px var(--violet), 0 0 30px var(--violet), 0 0 40px var(--violet);
+        }
+
+        .neon-indigo {
+            color: var(--indigo);
+            text-shadow: 0 0 10px var(--indigo), 0 0 30px var(--indigo), 0 0 40px var(--indigo);
+        }
+
+        .neon-blue {
+            color: var(--blue);
+            text-shadow: 0 0 10px var(--blue), 0 0 30px var(--blue), 0 0 40px var(--blue);
+        }
+
+        .neon-green {
+            color: var(--green);
+            text-shadow: 0 0 10px var(--green), 0 0 30px var(--green), 0 0 40px var(--green);
+        }
+
+        .neon-yellow {
+            color: var(--yellow);
+            text-shadow: 0 0 10px var(--yellow), 0 0 30px var(--yellow), 0 0 40px var(--yellow);
+        }
+
+        .neon-orange {
+            color: var(--orange);
+            text-shadow: 0 0 10px var(--orange), 0 0 30px var(--orange), 0 0 40px var(--orange);
+        }
+
+        .neon-red {
+            color: var(--red);
+            text-shadow: 0 0 10px var(--red), 0 0 30px var(--red), 0 0 40px var(--red);
+        }
+
+        /* Glowing Border - Sharper */
+        .glowing-border {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .glowing-border::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            padding: 1px;
+            background: linear-gradient(90deg, 
+                var(--violet), 
+                var(--indigo), 
+                var(--blue), 
+                var(--green), 
+                var(--yellow), 
+                var(--orange), 
+                var(--red)
+            );
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            pointer-events: none;
+            filter: brightness(1.3);
+        }
+
+        /* Typography */
+        .display-1 {
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .display-2 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .display-3 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .lead {
+            font-size: 1.5rem;
+            font-weight: 300;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        .body-text {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+
+        .quote {
+            font-size: 1.75rem;
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.6;
+            max-width: 900px;
+            padding: 40px;
+            position: relative;
+        }
+
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            opacity: 0.5;
+        }
+
+        .quote::before {
+            top: 10px;
+            left: 10px;
+        }
+
+        .quote::after {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        /* Section Indicator */
+        .section-indicator {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 300;
+            letter-spacing: 2px;
+            z-index: 10;
+            padding: 8px 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Progress Bar - Fixed */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--violet), 
+                var(--indigo), 
+                var(--blue), 
+                var(--green), 
+                var(--yellow), 
+                var(--orange), 
+                var(--red)
+            );
+            z-index: 101;
+            transition: width 0.1s ease-out;
+            filter: brightness(1.3);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Content Containers */
+        .content-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Question Lists */
+        .question-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .question-list li {
+            margin-bottom: 30px;
+            padding-left: 50px;
+            position: relative;
+        }
+
+        .question-list li::before {
+            content: attr(data-number);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .franchise-questions li::before {
+            color: var(--red);
+            text-shadow: 0 0 10px var(--red), 0 0 20px var(--red);
+        }
+
+        .bhratha-questions li::before {
+            color: var(--green);
+            text-shadow: 0 0 10px var(--green), 0 0 20px var(--green);
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.08;
+            filter: blur(25px);
+            z-index: -1;
+        }
+
+        /* BUBBLE ANIMATIONS - USP */
+        /* Tech Bubbles Animation in Headings */
+        .bubble-heading {
+            position: relative;
+            display: inline-block;
+        }
+
+        .bubble-heading::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -20px;
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: bubbleFloat 3s infinite ease-in-out;
+            z-index: -1;
+        }
+
+        .bubble-heading::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: -15px;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: bubbleFloat 4s infinite ease-in-out 0.5s;
+            z-index: -1;
+        }
+
+        @keyframes bubbleFloat {
+            0%, 100% { 
+                transform: translateY(0) scale(0.8); 
+                opacity: 0.3; 
+            }
+            50% { 
+                transform: translateY(-25px) scale(1.2); 
+                opacity: 0.9; 
+            }
+        }
+
+        /* Multiple Bubbles for Main Display Headings */
+        .display-1.bubble-heading::after,
+        .display-2.bubble-heading::after,
+        .display-3.bubble-heading::after {
+            width: 15px;
+            height: 15px;
+            top: -20px;
+            right: -25px;
+        }
+
+        .display-1.bubble-heading::before,
+        .display-2.bubble-heading::before,
+        .display-3.bubble-heading::before {
+            width: 10px;
+            height: 10px;
+            bottom: -15px;
+            left: -20px;
+        }
+
+        /* Character bubble animation for special elements */
+        .char-bubbles {
+            position: relative;
+        }
+
+        .char-bubbles span {
+            position: relative;
+            display: inline-block;
+        }
+
+        .char-bubbles span::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: bubbleRise 6s infinite linear;
+            animation-delay: calc(var(--i) * 0.3s);
+            opacity: 0;
+            left: calc(var(--x) * 15px);
+            bottom: -20px;
+        }
+
+        @keyframes bubbleRise {
+            0% {
+                transform: translateY(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.9;
+                transform: translateY(-5px) scale(1);
+            }
+            90% {
+                opacity: 0.9;
+                transform: translateY(-80px) scale(0.8);
+            }
+            100% {
+                transform: translateY(-100px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Simple floating bubbles in background */
+        .floating-bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            animation: floatUp 8s ease-in-out infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.3);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-150px) scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        /* Data Chip Styling */
+        .data-chip {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .data-chip:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .chip-label {
+            font-size: 0.9rem;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        /* Portfolio Stack Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .portfolio-card {
+            background: rgba(20, 20, 30, 0.7);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 112, 255, 0.2);
+            border-color: var(--blue);
+        }
+
+        /* Phase Indicator */
+        .phase-indicator {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .phase-1 { background: rgba(57, 255, 20, 0.1); color: var(--green); border: 1px solid var(--green); }
+        .phase-2 { background: rgba(0, 112, 255, 0.1); color: var(--blue); border: 1px solid var(--blue); }
+        .phase-3 { background: rgba(255, 0, 0, 0.1); color: var(--red); border: 1px solid var(--red); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .display-1 {
+                font-size: 3rem;
+            }
+
+            .display-2 {
+                font-size: 2.5rem;
+            }
+
+            .display-3 {
+                font-size: 2rem;
+            }
+
+            .lead {
+                font-size: 1.25rem;
+            }
+
+            .body-text {
+                font-size: 1.1rem;
+            }
+
+            .quote {
+                font-size: 1.4rem;
+                padding: 20px;
+            }
+
+            .section-indicator {
+                right: 15px;
+                bottom: 15px;
+                font-size: 0.9rem;
+            }
+
+            .bubble-heading::after {
+                width: 8px;
+                height: 8px;
+                top: -10px;
+                right: -15px;
+            }
+
+            .bubble-heading::before {
+                width: 6px;
+                height: 6px;
+                bottom: -8px;
+                left: -12px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .display-1 {
+                font-size: 2.5rem;
+            }
+
+            .display-2 {
+                font-size: 2rem;
+            }
+
+            .quote::before, .quote::after {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 60px 15px;
+            }
+
+            .section-indicator {
+                right: 10px;
+                bottom: 10px;
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .glowing {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-gray);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--violet), var(--red));
+            border-radius: 5px;
+        }
+
+        /* Tech Brand Symbol */
+        .tech-symbol {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 3rem;
+        }
+
+        .tech-i { color: var(--orange); }
+        .tech-p { color: var(--green); }
+        .tech-n { color: var(--blue); }
+        .tech-o { color: var(--yellow); }
+        .tech-t { color: var(--violet); }
+        .tech-e { color: var(--red); }
+        .tech-c { color: white; }
+    </style>
+</head>
+<body class="concrete-bg">
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Section 1: Cover -->
+    <section id="section1" class="section">
+        <div class="section-indicator" id="sectionIndicator">01/09</div>
+        <div class="floating-element" style="width: 300px; height: 300px; background: var(--violet); top: 10%; left: 10%;"></div>
+        <div class="floating-element" style="width: 200px; height: 200px; background: var(--blue); bottom: 20%; right: 15%;"></div>
+        
+        <div class="content-container text-center">
+            <div class="mb-8">
+                <h1 class="display-1 neon-blue mb-4 bubble-heading">THE GRAND VISION</h1>
+                <div class="tech-symbol mb-6 char-bubbles">
+                    <span class="tech-i" style="--i:0; --x:0">I</span>
+                    <span class="tech-p" style="--i:1; --x:1">P</span>
+                    <span class="tech-n" style="--i:2; --x:2">N</span>
+                    <span class="tech-o" style="--i:3; --x:0">O</span>
+                    <span class="tech-t" style="--i:4; --x:1">T</span>
+                    <span class="tech-e" style="--i:5; --x:2">E</span>
+                    <span class="tech-c" style="--i:6; --x:0">C</span>
+                </div>
+                <p class="lead text-gray-400 bubble-heading">Portfolio & Vision Dossier</p>
+                <p class="body-text text-gray-400 mt-8 max-w-2xl mx-auto">
+                    Bharath BholeY – Founder-CEO | Investor Pitch Hybrid | Public-Facing Document
+                </p>
+            </div>
+            
+            <div class="mt-20">
+                <div class="glowing-border p-6 inline-block">
+                    <p class="body-text max-w-2xl mx-auto">
+                        Building not a single startup, but a future systems architecture — a convergence of identity, technology, real-world access, culture, and venture creation.
+                    </p>
+                </div>
+                <div class="mt-12 text-sm text-gray-600 tracking-widest uppercase">
+                    <div class="flex items-center justify-center space-x-4">
+                        <div class="w-8 h-px bg-gray-600"></div>
+                        <span>Scroll to Continue</span>
+                        <div class="w-8 h-px bg-gray-600"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Founder Identity -->
+    <section id="section2" class="section">
+        <div class="section-indicator">02/09</div>
+        <div class="floating-element" style="width: 250px; height: 250px; background: var(--orange); top: 20%; right: 10%;"></div>
+        
+        <div class="content-container">
+            <div class="mb-16">
+                <h2 class="display-2 neon-orange mb-8 bubble-heading">FOUNDER IDENTITY</h2>
+                <div class="data-chip">
+                    <div class="chip-label">NAME</div>
+                    <h3 class="display-3 neon-blue">Bharath BholeY</h3>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="glowing-border p-8 mb-8">
+                        <h4 class="text-2xl font-bold neon-green mb-4 bubble-heading">Positioning</h4>
+                        <p class="body-text">Founder & CEO, IPNOTEC</p>
+                        
+                        <h4 class="text-2xl font-bold neon-green mt-8 mb-4 bubble-heading">Profile</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                                <span>Tech Futurist</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-blue-500 mr-3 glowing"></div>
+                                <span>Future-Society Designer</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-violet-500 mr-3 glowing"></div>
+                                <span>Venture Architect</span>
+                            </li>
+                        </ul>
+                        
+                        <h4 class="text-2xl font-bold neon-green mt-8 mb-4 bubble-heading">Experience</h4>
+                        <p class="body-text">20 years IT | MBA | Career break to build institution-grade ventures</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="glowing-border p-8">
+                        <h4 class="text-2xl font-bold neon-yellow mb-6 bubble-heading">Architecture Overview</h4>
+                        <p class="body-text mb-6">
+                            At the core stands <span class="neon-blue font-bold">IPNOTEC</span> — envisioned as an Identity & Access Company for the future world.
+                        </p>
+                        <p class="body-text mb-6">
+                            Around IPNOTEC sits a structured portfolio:
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-orange-500 mr-3 glowing"></div>
+                                <span>Physical world engine (<span class="neon-orange">CLUBICLES</span>)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                                <span>Cultural & spiritual technology engine (<span class="neon-green">RWAWE</span>)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-blue-500 mr-3 glowing"></div>
+                                <span>Venture studio and membership society (<span class="neon-blue">BHRATHA</span>)</span>
+                            </li>
+                        </ul>
+                        <div class="mt-8 pt-6 border-t border-gray-800">
+                            <p class="body-text neon-red font-bold bubble-heading">
+                                Immediate objective: Execution
+                            </p>
+                            <p class="body-text text-gray-400 mt-2">
+                                Bring IPNOTEC into revenue mode, establish real products, and build a scalable future-tech company.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <a href="https://byb-resume.vercel.app" target="_blank" class="inline-flex items-center px-6 py-3 border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-black transition-all duration-300">
+                            <i class="fas fa-external-link-alt mr-2"></i>View Full Founder Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Core Vision & Problem -->
+    <section id="section3" class="section">
+        <div class="section-indicator">03/09</div>
+        <div class="floating-element" style="width: 350px; height: 350px; background: var(--green); opacity: 0.05; bottom: 10%; left: 5%;"></div>
+        
+        <div class="content-container">
+            <div class="mb-16 text-center">
+                <h2 class="display-2 mb-8 bubble-heading">
+                    CORE VISION & <span class="neon-red">UNAVOIDABLE PROBLEM</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="glowing-border p-8">
+                    <h3 class="display-3 neon-red mb-6 bubble-heading">The Unavoidable Problem</h3>
+                    <p class="body-text mb-6">
+                        The world is rapidly moving toward:
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 rounded-full bg-red-500 mr-3 glowing"></div>
+                            <span>Phone-less interaction</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 rounded-full bg-red-500 mr-3 glowing"></div>
+                            <span>Key-less spaces</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 rounded-full bg-red-500 mr-3 glowing"></div>
+                            <span>Paper-less identity</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 rounded-full bg-red-500 mr-3 glowing"></div>
+                            <span>Wearable-first computing</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 rounded-full bg-red-500 mr-3 glowing"></div>
+                            <span>AI-managed personal systems</span>
+                        </li>
+                    </ul>
+                    <div class="mt-8 pt-6 border-t border-gray-800">
+                        <p class="body-text neon-red font-bold bubble-heading">
+                            Yet identity today is fragmented across apps, cards, passwords, and platforms.
+                        </p>
+                        <p class="body-text text-gray-400 mt-2">
+                            There is no unified digital shadow of a human being.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="glowing-border p-8">
+                    <h3 class="display-3 neon-green mb-6 bubble-heading">IPNOTEC's Core Thesis</h3>
+                    <p class="body-text mb-6">
+                        IPNOTEC is being built as an <span class="neon-blue font-bold">Identity & Access Company</span>.
+                    </p>
+                    <p class="body-text mb-6">
+                        A system where:
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                            <span>Humans operate through a secure digital identity layer</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                            <span>Devices replace phones</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                            <span>Access replaces passwords</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                            <span>Environments respond to individuals</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                            <span>Physical and digital worlds converge</span>
+                        </li>
+                    </ul>
+                    <div class="mt-8 pt-6 border-t border-gray-800">
+                        <p class="quote neon-orange text-center bubble-heading">
+                            If IPNOTEC disappeared tomorrow, the world would lose the possibility of a unified future identity infrastructure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: First Unavoidable Machine -->
+    <section id="section4" class="section">
+        <div class="section-indicator">04/09</div>
+        <div class="floating-element" style="width: 400px; height: 400px; background: var(--yellow); opacity: 0.03; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+        
+        <div class="content-container">
+            <div class="mb-16 text-center">
+                <h2 class="display-2 neon-blue mb-4 bubble-heading">FIRST UNAVOIDABLE MACHINE</h2>
+                <p class="lead text-gray-400">Product Logic & Initial Rollout</p>
+            </div>
+            
+            <div class="glowing-border p-8 md:p-12 mb-12">
+                <div class="flex items-center justify-center mb-8">
+                    <div class="w-16 h-16 rounded-full bg-blue-500 flex items-center justify-center mr-4 glowing">
+                        <i class="fas fa-watch text-2xl"></i>
+                    </div>
+                    <h3 class="display-3 neon-blue bubble-heading">IPNOTEC FIRST MACHINE</h3>
+                </div>
+                <p class="body-text text-center mb-8">
+                    IPNOTEC ID + IPNOTEC Smart Watch<br>
+                    A wearable-centric identity system
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                    <div>
+                        <h4 class="text-2xl font-bold neon-green mb-4 bubble-heading">What It Does</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                                <span>Acts as a digital shadow</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                                <span>Controls physical access (homes, offices, clubs, vehicles)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                                <span>Enables phone-less & key-less living</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                                <span>Hosts layered identity: Personal, Professional, Private</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-2xl font-bold neon-orange mb-4 bubble-heading">Initial Rollout</h4>
+                        <p class="body-text mb-4">
+                            Founder environments → controlled clubs → co-living → enterprise → cities.
+                        </p>
+                        
+                        <h4 class="text-xl font-bold neon-violet mt-6 mb-3 bubble-heading">First Product Stack</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <div class="w-2 h-2 rounded-full bg-violet-500 mr-3"></div>
+                                <span>IPNOTEC ID (App-first MVP)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-2 h-2 rounded-full bg-violet-500 mr-3"></div>
+                                <span>IPNOTEC Smart Watch</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-2 h-2 rounded-full bg-violet-500 mr-3"></div>
+                                <span>IPNOTEC Access Stack</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-2 h-2 rounded-full bg-violet-500 mr-3"></div>
+                                <span>Enterprise APIs</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Revenue Logic -->
+    <section id="section5" class="section">
+        <div class="section-indicator">05/09</div>
+        <div class="content-container">
+            <div class="mb-16 text-center">
+                <h2 class="display-2 neon-green mb-8 bubble-heading">₹1 CR → ₹10 CR → ₹100 CR LOGIC</h2>
+                <p class="lead text-gray-400">Scalable Revenue Architecture</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Phase 1 -->
+                <div class="portfolio-card">
+                    <div class="phase-indicator phase-1">₹1 CRORE PHASE</div>
+                    <h3 class="text-2xl font-bold neon-green mb-4 bubble-heading">MVP + EARLY REVENUE</h3>
+                    <p class="body-text mb-6">
+                        Validate identity system, launch pilots, generate first revenue.
+                    </p>
+                    
+                    <h4 class="text-xl font-bold neon-blue mb-3 bubble-heading">Revenue Logic</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-blue-500 mr-2"></div>
+                            <span>Premium IDs (user@ipnotec.vip)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-blue-500 mr-2"></div>
+                            <span>Early memberships</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-blue-500 mr-2"></div>
+                            <span>Controlled space deployments</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-blue-500 mr-2"></div>
+                            <span>Partner pilots</span>
+                        </li>
+                    </ul>
+                    
+                    <h4 class="text-xl font-bold neon-orange mb-3 bubble-heading">Capital Use</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-orange-500 mr-2"></div>
+                            <span>IPNOTEC ID MVP</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-orange-500 mr-2"></div>
+                            <span>Security & architecture</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-orange-500 mr-2"></div>
+                            <span>Pilot hardware</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-orange-500 mr-2"></div>
+                            <span>Core team</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-800">
+                        <p class="text-sm font-bold neon-green bubble-heading">Success Outcome:</p>
+                        <p class="text-sm text-gray-400">Product in use • Paying early users • Access environments live</p>
+                    </div>
+                </div>
+                
+                <!-- Phase 2 -->
+                <div class="portfolio-card">
+                    <div class="phase-indicator phase-2">₹10 CRORE PHASE</div>
+                    <h3 class="text-2xl font-bold neon-blue mb-4 bubble-heading">PLATFORM & DEVICE SCALE</h3>
+                    <p class="body-text mb-6">
+                        Commercial launch, smartwatch deployment, CLUBICLES expansion.
+                    </p>
+                    
+                    <h4 class="text-xl font-bold neon-green mb-3 bubble-heading">Revenue Logic</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
+                            <span>Device sales</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
+                            <span>Subscriptions</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
+                            <span>Enterprise integrations</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
+                            <span>CLUBICLES real estate tech revenue</span>
+                        </li>
+                    </ul>
+                    
+                    <h4 class="text-xl font-bold neon-orange mb-3 bubble-heading">Capital Use</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-orange-500 mr-2"></div>
+                            <span>Smart watch engineering</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-orange-500 mr-2"></div>
+                            <span>Manufacturing pilots</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-orange-500 mr-2"></div>
+                            <span>Access hardware</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-orange-500 mr-2"></div>
+                            <span>National rollout</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-orange-500 mr-2"></div>
+                            <span>Brand building</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-800">
+                        <p class="text-sm font-bold neon-blue bubble-heading">Success Outcome:</p>
+                        <p class="text-sm text-gray-400">Recognized future-tech brand • Multi-city access network • Hardware + SaaS revenue</p>
+                    </div>
+                </div>
+                
+                <!-- Phase 3 -->
+                <div class="portfolio-card">
+                    <div class="phase-indicator phase-3">₹100 CRORE PHASE</div>
+                    <h3 class="text-2xl font-bold neon-red mb-4 bubble-heading">ECOSYSTEM COMPANY</h3>
+                    <p class="body-text mb-6">
+                        Establish IPNOTEC as a future identity & access ecosystem.
+                    </p>
+                    
+                    <h4 class="text-xl font-bold neon-violet mb-3 bubble-heading">Revenue Logic</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-violet-500 mr-2"></div>
+                            <span>Global identity subscriptions</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-violet-500 mr-2"></div>
+                            <span>Enterprise licensing</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-violet-500 mr-2"></div>
+                            <span>Infrastructure deployments</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-violet-500 mr-2"></div>
+                            <span>Data & intelligence systems</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-violet-500 mr-2"></div>
+                            <span>Device ecosystems</span>
+                        </li>
+                    </ul>
+                    
+                    <h4 class="text-xl font-bold neon-yellow mb-3 bubble-heading">Strategic Position</h4>
+                    <p class="body-text">
+                        Platform company with multi-vertical dominance and ecosystem adoption.
+                    </p>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-800">
+                        <p class="text-sm font-bold neon-red bubble-heading">Success Outcome:</p>
+                        <p class="text-sm text-gray-400">Platform company • Ecosystem adoption • Multi-vertical dominance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Portfolio Stack -->
+    <section id="section6" class="section">
+        <div class="section-indicator">06/09</div>
+        <div class="floating-element" style="width: 300px; height: 300px; background: var(--red); top: 15%; left: 15%; opacity: 0.05;"></div>
+        
+        <div class="content-container">
+            <div class="mb-16 text-center">
+                <h2 class="display-2 neon-violet mb-8 bubble-heading">THE PORTFOLIO STACK</h2>
+                <p class="lead text-gray-400">Integrated Ecosystem Architecture</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- IPNOTEC Card -->
+                <div class="portfolio-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center mr-4 glowing">
+                            <i class="fas fa-microchip text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold neon-blue bubble-heading">IPNOTEC</h3>
+                    </div>
+                    <p class="body-text mb-4">
+                        <span class="neon-blue font-bold">CORE POWER COMPANY</span><br>
+                        Technology, identity, access, data, devices.
+                    </p>
+                    <div class="mt-6">
+                        <a href="https://www.canva.com/design/DAG8l69C-sc/hSBAIh9zGTlOY4FGLx2_kQ/view" target="_blank" class="inline-flex items-center text-blue-500 hover:text-blue-400 transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i>View Pitch Deck
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- CLUBICLES Card -->
+                <div class="portfolio-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center mr-4 glowing">
+                            <i class="fas fa-building text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold neon-orange bubble-heading">CLUBICLES</h3>
+                    </div>
+                    <p class="body-text mb-4">
+                        <span class="neon-orange font-bold">REAL WORLD ENGINE</span><br>
+                        Real estate, co-working, co-living, smart spaces, access-driven environments.
+                    </p>
+                    <p class="body-text text-gray-400 text-sm mb-4">
+                        Role: Physical deployment face • Real estate revenue segregation • Franchise and smart-space platform • Mass adoption testbed
+                    </p>
+                    <div class="mt-6">
+                        <a href="https://www.canva.com/design/DAGztZPFhOE/8VfzP3ZqE1wbB-8RhRAFlQ/view" target="_blank" class="inline-flex items-center text-orange-500 hover:text-orange-400 transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i>View Pitch Deck
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- RWAWE Card -->
+                <div class="portfolio-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center mr-4 glowing">
+                            <i class="fas fa-om text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold neon-green bubble-heading">RWAWE</h3>
+                    </div>
+                    <p class="body-text mb-4">
+                        <span class="neon-green font-bold">SPIRITUAL-TECH & CULTURAL ENGINE</span><br>
+                        A future Bharat-focused spiritual technology initiative.
+                    </p>
+                    <p class="body-text text-gray-400 text-sm mb-4">
+                        Role: Indian languages & Sanskrit platforms • Cultural intelligence systems • Spiritual-tech products • Education & value creation
+                    </p>
+                    <div class="mt-6">
+                        <a href="https://www.canva.com/design/DAG8socosqg/5arKYvqUZy-BexwwaAhwPQ/view" target="_blank" class="inline-flex items-center text-green-500 hover:text-green-400 transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i>View Pitch Deck
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="body-text neon-yellow font-bold max-w-3xl mx-auto bubble-heading">
+                    Technology powered by IPNOTEC. Real-world deployment through CLUBICLES. Cultural resonance through RWAWE.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: BHRATHA -->
+    <section id="section7" class="section">
+        <div class="section-indicator">07/09</div>
+        <div class="floating-element" style="width: 500px; height: 500px; background: var(--green); opacity: 0.02; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+        
+        <div class="content-container">
+            <div class="mb-16 text-center">
+                <h2 class="display-2 neon-yellow mb-8 bubble-heading">BHRATHA</h2>
+                <p class="lead text-gray-400">Membership Society & Venture Studio</p>
+            </div>
+            
+            <div class="glowing-border p-8 md:p-12 mb-12">
+                <p class="body-text mb-8 text-center">
+                    BHRATHA is being built as a membership-first inner circle.<br>
+                    <span class="neon-red font-bold bubble-heading">Before venture capital. Before institutions. Before public structures.</span>
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold neon-green mb-6 bubble-heading">Purpose</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                                <span>Curate serious long-term partners</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                                <span>Secure execution capital</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                                <span>Create founder-operator culture</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                                <span>House future ventures</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                                <span>Protect long-term vision</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold neon-blue mb-6 bubble-heading">BHRATHA MEMBERSHIP LOGIC</h3>
+                        <p class="body-text mb-4">
+                            Membership is mandatory <span class="neon-red font-bold bubble-heading">before</span>:
+                        </p>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center">
+                                <div class="w-2 h-2 rounded-full bg-red-500 mr-3"></div>
+                                <span>Investing</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-2 h-2 rounded-full bg-red-500 mr-3"></div>
+                                <span>Allocations</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-2 h-2 rounded-full bg-red-500 mr-3"></div>
+                                <span>Venture participation</span>
+                            </li>
+                        </ul>
+                        <p class="body-text neon-green font-bold bubble-heading">
+                            This ensures alignment before capital, culture before ownership, society before cap-table.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-12 pt-8 border-t border-gray-800">
+                    <h3 class="text-2xl font-bold neon-orange mb-6 bubble-heading">What BHRATHA Members Access</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="text-center">
+                            <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mx-auto mb-3 glowing">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <p class="text-sm">Priority access to IPNOTEC & ventures</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center mx-auto mb-3 glowing">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <p class="text-sm">Investment participation rights</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-10 h-10 rounded-full bg-violet-500 flex items-center justify-center mx-auto mb-3 glowing">
+                                <i class="fas fa-users-cog"></i>
+                            </div>
+                            <p class="text-sm">Closed innovation councils</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center mx-auto mb-3 glowing">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <p class="text-sm">Institutional ecosystem</p>
+                        </div>
+                    </div>
+                    <p class="body-text text-center mt-8 neon-red font-bold bubble-heading">
+                        BHRATHA becomes the human engine behind all companies.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Investor Positioning -->
+    <section id="section8" class="section">
+        <div class="section-indicator">08/09</div>
+        <div class="content-container">
+            <div class="mb-16 text-center">
+                <h2 class="display-2 neon-indigo mb-8 bubble-heading">INVESTOR & PARTNER POSITIONING</h2>
+                <p class="lead text-gray-400">Strategic Participation Framework</p>
+            </div>
+            
+            <div class="glowing-border p-8 md:p-12 mb-12">
+                <p class="body-text text-center mb-8 neon-blue font-bold bubble-heading">
+                    This portfolio is open to:
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-blue-500 mr-3 glowing"></div>
+                                <span>Technology builders</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-blue-500 mr-3 glowing"></div>
+                                <span>Hardware innovators</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-blue-500 mr-3 glowing"></div>
+                                <span>Real estate operators</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                                <span>Infrastructure companies</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                                <span>Long-term strategic investors</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-green-500 mr-3 glowing"></div>
+                                <span>Cultural & education leaders</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-bold neon-orange mb-4 bubble-heading">Participation Models</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <div class="w-2 h-2 rounded-full bg-orange-500 mr-3"></div>
+                                <span>BHRATHA membership</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-2 h-2 rounded-full bg-orange-500 mr-3"></div>
+                                <span>Venture-specific investments</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-2 h-2 rounded-full bg-orange-500 mr-3"></div>
+                                <span>Strategic build partnerships</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-2 h-2 rounded-full bg-orange-500 mr-3"></div>
+                                <span>Territory and ecosystem collaborations</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <div class="quote neon-green mb-12 bubble-heading">
+                    Bharath BholeY is not building apps.<br>
+                    He is building identity systems, access infrastructures,<br>
+                    cultural technologies, and institution-grade ventures.
+                </div>
+                
+                <div class="glowing-border p-8 max-w-3xl mx-auto">
+                    <p class="display-3 neon-red mb-6 bubble-heading">IPNOTEC is the first machine.</p>
+                    <p class="display-3 neon-blue mb-6 bubble-heading">BHRATHA is the long-term institution.</p>
+                    <p class="display-3 neon-green mb-6 bubble-heading">The portfolio is the execution field.</p>
+                    <p class="body-text text-gray-400 mt-8">
+                        The invitation is not to fund an idea.<br>
+                        It is to enter a system being architected for decades.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 9: Epilogue -->
+    <section id="section9" class="section">
+        <div class="section-indicator">09/09</div>
+        <div class="content-container text-center">
+            <div class="mb-16">
+                <div class="tech-symbol mb-8 char-bubbles">
+                    <span class="tech-i" style="--i:0; --x:0">I</span>
+                    <span class="tech-p" style="--i:1; --x:1">P</span>
+                    <span class="tech-n" style="--i:2; --x:2">N</span>
+                    <span class="tech-o" style="--i:3; --x:0">O</span>
+                    <span class="tech-t" style="--i:4; --x:1">T</span>
+                    <span class="tech-e" style="--i:5; --x:2">E</span>
+                    <span class="tech-c" style="--i:6; --x:0">C</span>
+                </div>
+                <h2 class="display-2 mb-4 bubble-heading">A Future Systems Architecture</h2>
+                <p class="lead text-gray-400 bubble-heading">Built on Identity, Powered by Technology, Protected by Brotherhood</p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+                <div class="glowing-border p-8 md:p-12 mb-12">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div>
+                            <div class="text-4xl neon-violet mb-4 bubble-heading">01</div>
+                            <h4 class="text-xl font-bold neon-violet mb-2 bubble-heading">Identity First</h4>
+                            <p class="text-sm text-gray-400">Unified digital shadow</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl neon-green mb-4 bubble-heading">02</div>
+                            <h4 class="text-xl font-bold neon-green mb-2 bubble-heading">Access as Power</h4>
+                            <p class="text-sm text-gray-400">Key-less, phone-less future</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl neon-orange mb-4 bubble-heading">03</div>
+                            <h4 class="text-xl font-bold neon-orange mb-2 bubble-heading">Brotherhood by Design</h4>
+                            <p class="text-sm text-gray-400">Aligned capital, culture</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12">
+                    <p class="body-text text-gray-400 mb-8">
+                        For partnership inquiries that understand<br>
+                        future infrastructure is built on systems, not apps.
+                    </p>
+                    <div class="flex flex-col md:flex-row gap-4 justify-center">
+                        <button onclick="window.open('https://bhratha.com?text=', '_blank')" class="px-8 py-3 bg-green-500 text-black hover:bg-green-600 transition-all duration-300 bubble-heading">
+                            <i class="fas fa-redo mr-2"></i>ABOUT BHRATHA
+                        </button>
+                        <button onclick="window.open('https://wa.me/916292306090?text=IPNOTEC%20Portfolio%20Inquiry', '_blank')" class="px-8 py-3 bg-green-500 text-black hover:bg-green-600 transition-all duration-300 bubble-heading">
+                            <i class="fas fa-handshake mr-2"></i>Request Partnership
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="mt-20 pt-8 border-t border-gray-800">
+                    <p class="text-sm text-gray-600">
+                        © 2023 BHARATH BHOLEY | IPNOTEC PORTFOLIO. All rights reserved.<br>
+                        Future systems architecture by design. Institution-grade ventures by choice.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Progress Bar Logic - Fixed
+        const progressBar = document.getElementById('progressBar');
+        
+        function updateProgressBar() {
+            const totalHeight = document.body.scrollHeight - window.innerHeight;
+            const progress = (window.scrollY / totalHeight) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+        
+        // Throttle the scroll event for better performance
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (!scrollTimeout) {
+                scrollTimeout = setTimeout(() => {
+                    updateProgressBar();
+                    scrollTimeout = null;
+                }, 10);
+            }
+        });
+
+        // Create floating background bubbles
+        function createFloatingBubbles() {
+            const colors = ['#9D00FF', '#4B00B2', '#0070FF', '#39FF14', '#FFD700', '#FF6900', '#FF0000'];
+            
+            for (let i = 0; i < 20; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'floating-bubble';
+                
+                const size = Math.random() * 20 + 5;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const left = Math.random() * 100;
+                const delay = Math.random() * 5;
+                
+                bubble.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    background: ${color};
+                    left: ${left}%;
+                    top: ${Math.random() * 100}%;
+                    opacity: ${Math.random() * 0.4 + 0.1};
+                    animation-delay: ${delay}s;
+                    filter: blur(${Math.random() * 3 + 1}px);
+                `;
+                
+                document.body.appendChild(bubble);
+            }
+        }
+
+        // Initialize bubble animations for headings
+        function initializeBubbleAnimations() {
+            // Add bubble-heading class to all important headings automatically
+            const importantHeadings = document.querySelectorAll('h1, h2, h3, .display-1, .display-2, .display-3, .quote, .lead, .neon-green, .neon-red, .neon-blue, .neon-orange, .neon-yellow, .neon-violet, .neon-indigo');
+            
+            importantHeadings.forEach(heading => {
+                // Skip if already has bubble class or is too small
+                if (!heading.classList.contains('bubble-heading') && 
+                    heading.textContent.length > 3 && 
+                    heading.textContent.length < 100) {
+                    
+                    // Add bubble-heading class to 70% of important headings
+                    if (Math.random() > 0.3) {
+                        heading.classList.add('bubble-heading');
+                    }
+                }
+            });
+            
+            // Ensure specific important elements always have bubbles
+            const alwaysBubble = document.querySelectorAll('.display-1, .display-2, .display-3, .quote');
+            alwaysBubble.forEach(el => {
+                el.classList.add('bubble-heading');
+            });
+        }
+
+        // Initialize everything on load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateProgressBar(); // Initial progress bar update
+            createFloatingBubbles();
+            initializeBubbleAnimations();
+            
+            // Add keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                const sections = document.querySelectorAll('.section');
+                const currentSection = Array.from(sections).findIndex(section => {
+                    const rect = section.getBoundingClientRect();
+                    return rect.top >= 0 && rect.top <= window.innerHeight / 2;
+                });
+                
+                if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+                    e.preventDefault();
+                    if (currentSection < sections.length - 1) {
+                        sections[currentSection + 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+                    e.preventDefault();
+                    if (currentSection > 0) {
+                        sections[currentSection - 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                } else if (e.key === 'Home') {
+                    e.preventDefault();
+                    sections[0].scrollIntoView({ behavior: 'smooth' });
+                } else if (e.key === 'End') {
+                    e.preventDefault();
+                    sections[sections.length - 1].scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+            
+            // Auto-play animation on scroll
+            const observerOptions = {
+                threshold: 0.3
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+            
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => observer.observe(section));
+        });
+
+        // Ensure scrolling works properly
+        window.addEventListener('load', () => {
+            document.body.style.overflowY = 'auto';
+            document.documentElement.style.overflowY = 'auto';
+        });
+    </script>
+</body>
+</html>
